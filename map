@@ -1,0 +1,29 @@
+<template>
+    <div>
+        <canvas id="myCanvas"></canvas>
+    </div>
+    
+</template>
+ 
+<script>
+  export default {
+    name: "index",
+    data(){
+      return{
+        canvas:null,
+        context:null
+      }
+    },
+    mounted() {
+      this.canvas=document.getElementById('myCanvas');//创建一个画布
+      this.context=this.canvas.getContext('2d');//canvas现在还是一个小孩子，不能支持3D
+      this.context.fillStyle='#FF0000';//填充颜色
+      this.context.fillRect(0,0,80,100);//左手用来画个矩形
+       //右手准备画个圆
+      this.context.beginPath();//设置弧形，因为这里圆是属于弧形
+      this.context.arc(100,75,50,0,2*Math.PI);//画弧的方法
+      this.context.stroke();//在页面是实际画的方式
+        
+    }
+  }
+</script>
